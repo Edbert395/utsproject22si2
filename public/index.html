@@ -3,16 +3,16 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Manajemen Tugas - Register, Login & Task</title>
+  <title>Tugas Manajemen Mahasiswa</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-...YOUR_INTEGRITY_HASH..." crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <div id="register-container" class="container">
-        <h2>Register</h2>
+        <h2>Pendaftaran</h2>
         
         <div class="input-group">
             <input type="text" id="reg-username" required>
@@ -24,8 +24,8 @@
             <label for="reg-password" style="color: black;">Password</label>
         </div>
     
-        <button onclick="registerUser()">Register</button>
-        <p><b>Login into existing account? </b><a onclick="showLogin()">Login</a></p>
+        <button onclick="registerUser()">Verifikasi</button>
+        <p><b>Apakah Sudah Ada Akun? </b><a onclick="showLogin()">Login</a></p>
     </div>
     <div id="login-container" class="container hidden">
         <h2>Login</h2>
@@ -40,8 +40,8 @@
             <label for="login-password" style="color: black;">Password</label>
         </div>
     
-        <button onclick="loginUser()">Login</button>
-        <p><b>Create new account?</b> <a onclick="showRegister()">Register</a></p>
+        <button onclick="loginUser()">Masuk</button>
+        <p><b>Buat Akun Baru?</b> <a onclick="showRegister()">Pendaftaran</a></p>
     </div>    
     
   <div id="task-container">
