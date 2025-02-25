@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Manajemen Tugas - Register, Login & Task</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-...YOUR_INTEGRITY_HASH..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="register-container" class="container">
+        <h2>Register</h2>
+        
+        <div class="input-group">
+            <input type="text" id="reg-username" required>
+            <label for="reg-username" style="color: black;">Username</label>
+        </div>
+    
+        <div class="input-group">
+            <input type="password" id="reg-password" required>
+            <label for="reg-password" style="color: black;">Password</label>
+        </div>
+    
+        <button onclick="registerUser()">Register</button>
+        <p><b>Login into existing account? </b><a onclick="showLogin()">Login</a></p>
+    </div>
+    <div id="login-container" class="container hidden">
+        <h2>Login</h2>
+        
+        <div class="input-group">
+            <input type="text" id="login-username" required>
+            <label for="login-username" style="color: black;">Username</label>
+        </div>
+    
+        <div class="input-group">
+            <input type="password" id="login-password" required>
+            <label for="login-password" style="color: black;">Password</label>
+        </div>
+    
+        <button onclick="loginUser()">Login</button>
+        <p><b>Create new account?</b> <a onclick="showRegister()">Register</a></p>
+    </div>    
+    
+  <div id="task-container">
+    <nav class="navbar">
+      <h2>Manajemen Tugas</h2>
+      <button class="logout-btn" onclick="logout()">Logout</button>
+    </nav>
+    <div id="tambahtugas-container" class="tambahtugas-container">
+      <h2>Tambah Tugas Baru</h2>
+    <input type="text" id="task-title" placeholder="Judul Tugas">
+    <select id="task-category">
+      <option value="" disabled selected>Pilih Kategori</option>
+      <option value="Kuliah">Kuliah</option>
+      <option value="Organisasi">Organisasi</option>
+      <option value="Pribadi">Pribadi</option>
+    </select>
+    <input type="date" id="task-deadline">
+    <button onclick="addTask()" style="border: 0;">Tambah</button>
+  
+    <h2>Daftar Tugas</h2>
+    <div class="filter-container">
+      <select id="filter" onchange="filterTasks()">
+        <option value="">Semua</option>
+        <option value="Kuliah">Kuliah</option>
+        <option value="Organisasi">Organisasi</option>
+        <option value="Pribadi">Pribadi</option>
+      </select>
+      <button class="buttonfilter" onclick="filterTasks()" style="border: 0;">Filter</button>
+    </div>
+    <br>
+    <table id="task-table" border="1" cellpadding="8" cellspacing="0">
+      <thead>
+        <tr>
+          <th>Judul</th>
+          <th>Kategori</th>
+          <th>Deadline</th>
+          <th>Status</th>
+          <th>Aksi</th>
+        </tr>
+      </thead>
+      <tbody id="task-list"></tbody>
+    </table>
+  </div>
+    </div>
+  <div id="editModal" class="modal">
+    <div class="modal-content">
+      <h2>Edit Tugas</h2>
+      <form id="editForm">
+        <label for="newTitle">Judul:</label>
+        <input type="text" id="newTitle" name="newTitle" placeholder="Judul Tugas" required>
+        <label for="newCategory">Kategori:</label>
+        <select id="newCategory" name="newCategory" required>
+          <option value="Kuliah">Kuliah</option>
+          <option value="Organisasi">Organisasi</option>
+          <option value="Pribadi">Pribadi</option>
+        </select>
+        <label for="newDeadline">Deadline (YYYY-MM-DD):</label>
+        <input type="date" id="newDeadline" name="newDeadline" required style="width:100%; margin-bottom:10px;">
+        <div class="status-container">
+          <input type="checkbox" id="newStatus">
+          <label for="newStatus">Tugas Selesai</label>
+        </div>        
+        <div class="button-group">
+          <button type="button" class="close-btn" onclick="closeModal()">Batal</button>
+          <button type="submit">Simpan Perubahan</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+  <script src="script.js"></script>
+  
+</body>
+
+</html>
