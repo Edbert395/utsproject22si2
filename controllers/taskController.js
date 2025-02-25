@@ -7,7 +7,7 @@ const taskController = {
             const taskId = await Task.create(userId, title, category, deadline, status);
             res.status(201).json({ taskId });
         } catch (err) {
-            res.status(500).json({ message: 'Task creation failed' });
+            res.status(500).json({ message: 'Gagal Membuat Tugas' });
         }
     },
     getTasks: async (req, res) => {
@@ -16,7 +16,7 @@ const taskController = {
             const tasks = await Task.findAllByUserId(userId);
             res.json(tasks);
         } catch (err) {
-            res.status(500).json({ message: 'Failed to fetch tasks' });
+            res.status(500).json({ message: 'Gagal Mengambil Tugas' });
         }
     },
     updateTask: async (req, res) => {
@@ -24,18 +24,18 @@ const taskController = {
         const { title, category, deadline, status } = req.body;
         try {
             await Task.update(id, title, category, deadline, status);
-            res.json({ message: 'Task updated' });
+            res.json({ message: 'Tugas Diperbarui' });
         } catch (err) {
-            res.status(500).json({ message: 'Task update failed' });
+            res.status(500).json({ message: 'Tugas Gagal Diperbaharui' });
         }
     },
     deleteTask: async (req, res) => {
         const { id } = req.params;
         try {
             await Task.delete(id);
-            res.json({ message: 'Task deleted' });
+            res.json({ message: 'Tugas Dihapus' });
         } catch (err) {
-            res.status(500).json({ message: 'Task deletion failed' });
+            res.status(500).json({ message: 'Gagal Menghapus Tugas' });
         }
     }
 };
